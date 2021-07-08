@@ -21,7 +21,10 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('auth', 'AuthController@auth');
 });
 
-$router->group(['middleware' => 'jwt', 'prefix' => 'api'], function () use ($router) {
+$router->group([
+    'middleware' => 'jwt',
+    'prefix' => 'api'
+], function () use ($router) {
     $router->get('example', 'ExampleController@index');
     $router->get('example/{id}', 'ExampleController@show');
     $router->post('example', 'ExampleController@store');
